@@ -1,26 +1,16 @@
 package com.example.wordsapp
 
-import android.Manifest
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
-import android.service.autofill.OnClickAction
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wordsapp.databinding.ActivityMainBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -35,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView = binding.recyclerView
         chooseLayout()
-
+//
     }
 
     private fun chooseLayout() {
@@ -44,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             recyclerView.layoutManager = GridLayoutManager(this, 4)
         }
-        recyclerView.adapter = LetterAdapter()
+        recyclerView.adapter = LetterAdapterActivity()
     }
 
     private fun setIcon(menuItem: MenuItem?) {
@@ -66,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_switch_layout -> {
                 isLinearLayoutManager = !isLinearLayoutManager
@@ -74,41 +64,14 @@ class MainActivity : AppCompatActivity() {
                 setIcon(item)
                 return true
             }
-//            R.id.action_layout_make_call -> {
-//                Toast.makeText(this, "lapalp", Toast.LENGTH_LONG).show()
-//                val intent = Intent(this@MainActivity,com.example.wordsapp.MakeCallActivity::class.java)
-//                this@MainActivity.startActivity(intent)
-//                return true
-//            }
+            R.id.action_layout_make_call -> {
+//                Toast.makeText(this, "succeess", Toast.LENGTH_LONG).show()
+                val intent = Intent(this@MainActivity,com.example.wordsapp.MakeCallActivity::class.java)
+                this@MainActivity.startActivity(intent)
+                return true
+            }
 
             else -> super.onOptionsItemSelected(item)
         }
     }
-//    override fun onOptionsItemSelected(item: MenuItem):Boolean {
-//        return when (item.itemId) {
-//            R.id.action_layout_make_call -> {
-//
-//                Toast.makeText(this, "lapalp", Toast.LENGTH_LONG).show()
-////                val intent = Intent(this, MakeCallActivity::class.java)
-////                startActivity(intent)
-//                return true
-//            }
-//
-//            else -> super.onOptionsItemSelected(item)
-//        }
-//    }
-
-
-
-//    override fun onContextItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.action_layout_make_call -> {
-////                val intent = Intent(this, MakeCallActivity::class.java)
-////                startActivity(intent)
-//                Toast.makeText(this, "lapalp", Toast.LENGTH_LONG).show()
-//            }
-//        }
-//        return super.onOptionsItemSelected(item)
-//
-//    }
 }

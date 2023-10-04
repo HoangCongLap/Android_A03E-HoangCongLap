@@ -12,8 +12,8 @@ import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 
-class WordAdapter(private val letterId: String, context: Context) :
-    RecyclerView.Adapter<WordAdapter.WordViewHolder>() {
+class WordAdapterActivity(private val letterId: String, context: Context) :
+    RecyclerView.Adapter<WordAdapterActivity.WordViewHolder>() {
 
     private val filteredWords: List<String>
 

@@ -11,8 +11,8 @@ import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 
-class LetterAdapter :
-    RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
+class LetterAdapterActivity :
+    RecyclerView.Adapter<LetterAdapterActivity.LetterViewHolder>() {
     private val list = ('A').rangeTo('Z').toList()
     class LetterViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val button = view.findViewById<Button>(R.id.button_item)

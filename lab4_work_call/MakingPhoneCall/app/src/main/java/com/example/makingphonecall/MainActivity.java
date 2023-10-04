@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel:" + phoneNumber));
                 startActivity(callIntent);
+                phoneNo.setText("");
             }
         });
+
     }
 }
