@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        etFromLocation = findViewById(R.id.etFromLocation);
-        etToLocation = findViewById(R.id.etToLocation);
+        etFromLocation = findViewById(R.id.editFromLocation);
+        etToLocation = findViewById(R.id.editToLocation);
         btnGetDirection = findViewById(R.id.btnGetDirection);
 
         btnGetDirection.setOnClickListener(view -> {

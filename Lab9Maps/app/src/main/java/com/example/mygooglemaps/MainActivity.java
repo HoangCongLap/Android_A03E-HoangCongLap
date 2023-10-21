@@ -66,13 +66,24 @@ ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-
-
         myMap = googleMap;
-
+        if (currentLocation != null) {
         LatLng sydney = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
-        myMap.addMarker(new MarkerOptions().position(sydney).title("My Location"));
         myMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        MarkerOptions options = new MarkerOptions().position(sydney).title("Sydney");
+        options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+        myMap.addMarker(options);
+//            LatLng sydney = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+//            myMap.addMarker(new MarkerOptions().position(sydney).title("My Location"));
+//            myMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+//        LatLng sydney = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
+//        myMap.addMarker(new MarkerOptions().position(sydney).title("My Location"));
+//        myMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+////
+//        LatLng sydney = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
+//         myMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 //        MarkerOptions options = new MarkerOptions().position(sydney).title("Sydney");
 //        options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
 //        myMap.addMarker(options);
@@ -85,7 +96,7 @@ ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if(requestCode==FiNE_PERMISSION_CODE){
             if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                getLastLocation();;
+                getLastLocation();
             }else{
                 Toast.makeText(this, "Location permission is denied, please allow permission", Toast.LENGTH_SHORT).show();
             }
