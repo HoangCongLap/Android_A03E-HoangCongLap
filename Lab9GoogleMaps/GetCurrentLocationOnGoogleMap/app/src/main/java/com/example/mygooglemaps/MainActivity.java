@@ -68,14 +68,11 @@ ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.
     public void onMapReady(@NonNull GoogleMap googleMap) {
         myMap = googleMap;
         if (currentLocation != null) {
-        LatLng sydney = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
-        myMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        MarkerOptions options = new MarkerOptions().position(sydney).title("Sydney");
-        options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
-        myMap.addMarker(options);
-//            LatLng sydney = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-//            myMap.addMarker(new MarkerOptions().position(sydney).title("My Location"));
-//            myMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+            LatLng sydney = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+            myMap.addMarker(new MarkerOptions().position(sydney).title("My Location"));
+
+            myMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
 //        LatLng sydney = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
 //        myMap.addMarker(new MarkerOptions().position(sydney).title("My Location"));
